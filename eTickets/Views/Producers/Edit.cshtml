@@ -8,39 +8,41 @@
     <div class="col-md-8 offset-2">
         <div class="row">
             <div class="col-md-8 offset-2">
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <p>
+                        <h1>Update Producer - @Model.FullName</h1>
+                    </p>
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <p>
-                    <h1>Update Producer - @Model.FullName</h1>
-                </p>
-                <form asp-action="Edit">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="form-group text-center">
-                        <div class="rounded-circle-container" style="width: 150px; height: 150px; overflow: hidden; margin: 0 auto;">
-                            <img id="ProfilePicturePreview" class="border-info rounded-circle" style="width: 100%; height: 100%; object-fit: cover;" />
+                        <div class="form-group text-center">
+                            <div class="rounded-circle-container" style="width: 150px; height: 150px; overflow: hidden; margin: 0 auto;">
+                                <img id="ProfilePicturePreview" class="border-info rounded-circle" style="width: 100%; height: 100%; object-fit: cover;" />
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="ProfilePictureURL" class="control-label"></label>
-                        <input asp-for="ProfilePictureURL" class="form-control" />
-                        <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="FullName" class="control-label"></label>
-                        <input asp-for="FullName" class="form-control" />
-                        <span asp-validation-for="FullName" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Bio" class="control-label"></label>
-                        <input asp-for="Bio" class="form-control" />
-                        <span asp-validation-for="Bio" class="text-danger"></span>
-                    </div>
+                        <div class="form-group">
+                            <label asp-for="ProfilePictureURL" class="control-label"></label>
+                            <input asp-for="ProfilePictureURL" class="form-control" />
+                            <span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FullName" class="control-label"></label>
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Bio" class="control-label"></label>
+                            <input asp-for="Bio" class="form-control" />
+                            <span asp-validation-for="Bio" class="text-danger"></span>
+                        </div>
 
-                    <div class="form-group text-end mt-3">
-                        <input type="submit" value="Update" class="btn btn-outline-success" />
-                        <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
-                    </div>
-                </form>
+                        <div class="form-group text-end mt-3">
+                            <input type="submit" value="Update" class="btn btn-outline-success" />
+                            <a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
+                        </div>
+                    </form>
+                }
             </div>
         </div>
     </div>

@@ -128,5 +128,17 @@ namespace eTickets.Controllers
             return RedirectToAction(nameof(Index));
         }
         #endregion
+
+        #region Delete
+        [HttpGet, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var actorDetails = await _service.GetByIdAsync(id);
+            if (actorDetails == null) return View("NotFound");
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+        } 
+        #endregion
     }
 }

@@ -60,11 +60,26 @@
                                 @foreach (var actor in Model.Actors_Movies)
                                 {
                                     <div class="col-md-3 mb-4">
-                                        <div class="text-center">
+                                        @*<div class="text-center">
                                             <img class="border-info rounded-circle" src="@actor.Actor.ProfilePictureURL" style="max-width: 150px" />
                                             <br />
                                             <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">@actor.Actor.FullName</a>
+                                        </div>*@
+                                        <div class="rounded-circle-container" style="width: 150px; height: 150px; overflow: hidden;">
+                                            <img class="rounded-circle border-info" src="@actor.Actor.ProfilePictureURL" alt="@actor.Actor.FullName" style="width: 100%; height: 100%; object-fit: cover; max-width: 150px;" />
                                         </div>
+                                        <br />
+                                        <div class="text-center">
+                                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                            {
+                                                <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">@actor.Actor.FullName</a>
+                                            }
+                                            else
+                                            {
+                                                <b>@actor.Actor.FullName</b>
+                                            }
+                                        </div>
+
                                     </div>
                                 }
                             </div>

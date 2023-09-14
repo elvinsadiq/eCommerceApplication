@@ -17,7 +17,39 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Movies" asp-action="Index">eTickets</a>
+                <style>
+                    .navbar-brand {
+                        font-size: 32px; /* Reverted font size to 32px */
+                        font-weight: bold;
+                        color: #007bff !important; /* Text color changed to #0dcaf0 with !important */
+                        text-decoration: none;
+                        background-color: #f8f9fa;
+                        padding: 10px 20px;
+                        border-radius: 10px;
+                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                        .navbar-brand:hover {
+                            transform: scale(1.05);
+                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                        }
+
+                        /* Additional text style */
+                        .navbar-brand span {
+                            font-family: 'Arial', sans-serif; /* Font family */
+                            font-style: italic; /* Italic text */
+                            text-transform: uppercase; /* Uppercase text */
+                        }
+                </style>
+
+                <a class="navbar-brand" asp-controller="Movies" asp-action="Index">
+                    <span>CinemaTix</span>
+                </a>
+
+
+
+                @*<a class="navbar-brand" asp-controller="Movies" asp-action="Index">eTickets</a>*@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
